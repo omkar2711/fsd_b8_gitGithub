@@ -1,0 +1,95 @@
+
+
+1. if(condition){
+        block of code
+    }
+
+
+2. two way decision 
+if(condition){
+
+    }
+    else{
+
+    }
+
+
+3. Multi Way decision
+
+if(condition){
+
+}
+else if(condition 2){
+
+}
+else{
+
+}
+
+Nested condition
+ if(condition){
+    if(condition 2){
+
+    }
+    else{
+
+    }
+ }
+ else{
+
+ }
+
+
+4. Ternary (condition)
+
+ variable = (condition) ? valueIfTrue : valueIfFalse;
+
+ num % 2 == 0 ? sout("Even") : sout("Odd);
+
+
+Problem Statement : Check if the number is even or odd
+
+if(num % 2 == 0){
+    sout("number is even");
+}
+else{
+    sout("Number is odd);
+}
+
+
+5. Switch Case
+
+    switch(expression){
+        case value1:
+            break;
+        case value2:
+            break;
+        case value3:
+            break;
+        default:
+            break;
+
+    }
+
+
+
+Loops:
+
+1. For
+
+
+for(initialization, condition, increment/decrement){
+
+}
+
+2. While
+
+while(condition){
+
+}
+
+3. DoWhile
+
+do{
+
+}while(condition)

@@ -1,0 +1,79 @@
+Operators : Operators are symbols that perform actions or computations
+            on operands, such as variables or values;
+Expressions : Expressions in programming are combinations of values, variables, operators  
+            and method calls
+
+
+Types of Operators:
+    1. Arithematic 
+    2. Relational / comparision
+    3. Logical
+    4. Assignment
+
+1. Arithematic Operators:
+    addition (+)
+    substraction (-)
+    multiplacation (*)
+    division (/)
+    modulus (%)
+
+2. Relational:
+    greater (>)
+    smaller (<)
+    greater than equal to (>=)
+    smaller than equal to (<=)
+    double equal (==)
+    not (!=)
+
+   
+3. Logical : 
+    and (&&)
+    or (||)
+    not (!)
+
+
+int a = 10;
+int b = 10;
+
+
+4. Assignment 
+    equal (=)
+    plus equal (+=).      
+    minus equal (-=).      
+    multiply equal (*=)
+    divide equal (/=)
+    modulus equal (%=)
+
+
+Associativity and Precedence
+
+int res = 10/2/5;
+
+15 / ( 2 + 3 ) = 3
+10 - 2 + 4 * 3 =       
+( 10 - 2 ) + ( 4 * 3 )
+( t && f ) || t
+t || ( f && t )
+
+
+int k = 5
+value(k++) //5
+value(k++) //6
+value(++k) //8
+
+prefix  
+postfix
+
+
+int x = 5;
+int y = 10;
+
+//x = 5
+//y = 10
+
+
+
+int z = (x++ * y--) - (--x * ++y);
+      = (5 * 10) - (5 * 10)
+      = (50) - (50)
+      = 0
