@@ -7,29 +7,38 @@ const AddNote = ({setNotes , notes}) => {
     const [title , setTitle] = useState('');
     const [description , setDescription] = useState('');
 
-    console.log("Title:" , title )
-    console.log("Description:" , description )
 
     const handleAddNote = () => {
+
+        if(title ==='' || description === ''){
+            alert("Please fill in both the title and description fields.");
+            return;
+        }
         const Note = {
+            "noteId" : Date.now(),
             "title" : title,
             "description" : description
         }
 
+
         setNotes([...notes , Note]);
+
+        setTitle("");
+        setDescription("");
         
     }
 
 
   return (
     <div>
-        <div className=' flex flex-col justify-center border rounded-2xl gap-4 w-96 mx-auto my-10 p-8 bg-[#FCF9EA]'>
+        <div className=' flex flex-col justify-center rounded overflow-hidden shadow-lg gap-4 w-96 mx-auto my-10 p-8 bg-transparent bg-opacity-50 border border-gray-300'>
 
             <input 
                 type='text'
                 id='title'
+                value={title}
                 placeholder='Enter the title of the Note...'
-                className='border rounded-sm bg-white'
+                className='border border-transparent rounded-sm bg-white p-2'
                 onChange={(e)=>setTitle(e.target.value)}
             />
    
@@ -38,11 +47,12 @@ const AddNote = ({setNotes , notes}) => {
                 type='text'
                 id='description'
                 placeholder='Enter the description of the Note...'
-                className='border rounded-sm bg-white'
+                value={description}
+                className='border  border-transparent rounded-sm bg-white p-2'
                 onChange={(e)=>setDescription(e.target.value)}
             />
 
-            <button onClick={handleAddNote} className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded w-36 mx-auto">Save Note</button>
+            <button onClick={handleAddNote} className="bg-[#e1d5e0] font-semibold py-2 px-4 border  border-transparent rounded w-36 mx-auto">Save Note</button>
         </div>
 
         

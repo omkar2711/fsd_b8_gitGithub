@@ -1,1 +1,8 @@
 @import "tailwindcss";
+
+body{
+  background-image: url(./assets/v1064-22.jpg);
+
+  background-size: cover;
+
+}

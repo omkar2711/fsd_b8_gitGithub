@@ -13,10 +13,14 @@ function App() {
 
   return (
 
-    <div className='bg-[#FCF9EA] h-full '>
-      <AddNote setNotes={setNotes} notes={notes}/>
-      <hr />
-      <AllNotes notes={notes}/>
+    <div className='h-full '>
+        <AddNote setNotes={setNotes} notes={notes}/>
+
+        {notes.length === 0 && (
+          <p className='text-center text-gray-500'>No notes available. Please add a note.</p>
+        )}
+
+        <AllNotes notes={notes} setNotes={setNotes}/>
       </div>
   )
 }
