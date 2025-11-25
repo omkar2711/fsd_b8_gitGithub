@@ -1,0 +1,29 @@
+import { useState } from 'react'
+import { BrowserRouter, Routes, Route, Outlet } from 'react-router-dom';
+import Home from './pages/Home';
+const AboutUs = React.lazy( ()=> import('./pages/AboutUs'));
+import ContactUs from './pages/ContactUs';
+import Dashboard from './pages/Dashboard';
+import Profile from './pages/Profile';
+import Settings from './pages/Settings';
+import User from './pages/User';
+import PageNoteFound from './pages/PageNoteFound';
+
+
+function App() {
+
+
+  return (
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path='/user/:id' element={<User />} />
+        <Route path="/dashboard" element={<Dashboard />} >
+            <Route path='profile' element={<Profile />} />
+            <Route path='settings' element={<Settings />} />
+        </Route>
+        <Route path='*' element={<PageNoteFound />} />
+      </Routes>
+  )
+}
+
+export default App

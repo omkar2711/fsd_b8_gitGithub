@@ -1,0 +1,34 @@
+Routing : Routing is a technique used in web development to navigate 
+between different pages within a web application. 
+
+React Router :
+    - Enables MultiPage behavior in SPA.
+    - Allows navigation without full page reloads.
+    - Provides dynamic route matching for components.
+
+
+React Router Dom : React Router DOM is a popular library for implementing routing in 
+React applications. It provides a set of components and functions that allow developers 
+to define routes, handle navigation, and manage the browser history.
+
+
+step1 : install react-router-dom 
+step2 : setup routing in App.jsx (Wrapping Routes in BrowserRouter)
+step3 : Create different pages/components for different routes
+step4 : Define Routes using Route component
+
+
+
+Nested Routes : Nested routes allow you to define routes within other routes, 
+enabling a hierarchical structure for your application's navigation. 
+
+Outlet component : The Outlet component is used in React Router to render nested routes. 
+It acts as a placeholder for child routes defined within a parent route.
+
+
+Dynamic Routing  -> params -> useparams
+useNavigate -> navigation programmatically to different routes.
+
+
+Lazy Loading : Lazy loading is a technique used to optimize the performance of 
+web applications by loading components or resources only when they are needed.
