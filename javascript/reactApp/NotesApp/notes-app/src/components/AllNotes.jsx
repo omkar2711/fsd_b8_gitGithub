@@ -9,7 +9,7 @@ const AllNotes = ({notes, setNotes}) => {
 
     const editNote = (id , title, description) => {
 
-        console.log(title, description);
+
         setNotes(notes.map(note => {
             if(note.noteId === id){
                 return {
@@ -18,6 +18,7 @@ const AllNotes = ({notes, setNotes}) => {
                     description: description
                 }
             }
+            return note;
         }))
     }
 
