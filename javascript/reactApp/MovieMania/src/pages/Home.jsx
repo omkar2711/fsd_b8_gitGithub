@@ -1,13 +1,15 @@
 import React from 'react'
 import Navbar from '../components/Navbar'
 import { Link } from 'react-router-dom'
+import HeroSection from '../components/HeroSection'
+import Footer from '../components/Footer'
 
 const Home = () => {
   return (
-    <div>
-
-      <h1>Home Page</h1>
-      <Link to='/dashboard'>Dashboard</Link>
+    <div className=''>
+      <Navbar />
+      <HeroSection />
+      <Footer />
     </div>
   )
 }

@@ -1,8 +1,7 @@
-import { useState } from 'react'
-import { BrowserRouter, Routes, Route, Outlet } from 'react-router-dom';
+import React, { useState } from 'react'
+import { Routes, Route, Outlet } from 'react-router-dom';
 import Home from './pages/Home';
-const AboutUs = React.lazy( ()=> import('./pages/AboutUs'));
-import ContactUs from './pages/ContactUs';
+import Movies from './pages/Movies';
 import Dashboard from './pages/Dashboard';
 import Profile from './pages/Profile';
 import Settings from './pages/Settings';
@@ -17,6 +16,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path='/user/:id' element={<User />} />
+        <Route path="/movies" element={<Movies />} />
         <Route path="/dashboard" element={<Dashboard />} >
             <Route path='profile' element={<Profile />} />
             <Route path='settings' element={<Settings />} />
