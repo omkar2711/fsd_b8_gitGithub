@@ -1,0 +1,47 @@
+State : State is data that changes over time and affects the UI.
+
+Problem prop Drilling:
+    passing props multiple levels
+    hard to manage & debug
+
+Global State Management
+
+Redux:
+    Centralized state 
+    Predectable behaviour
+    Easy to maintain and debug
+    flexible, larger apps
+
+
+
+Redux Core principle
+    1. Single Source of Truth
+    2. State is Read Only
+    3. Changes are made through Pure Functions(Reducers)
+
+Redux:
+    Too much code / boilerPlates
+    Too many files to maintain
+
+
+Redux Toolkit
+
+
+1. Store : Its a central place where the entire application's state is stored.  -> configureStore
+2. Action : is an object describing what event had occourred, type
+    Action Creator (function) : return an action object
+3. Reducers : Pure Functions 
+            Current/initial State 
+            Action
+            Returns -> Updated State / new State
+4. Dipatch : Used to send action to the stored -> useDispatch();
+5. Selectors : Are functions used to extract the state from the stored -> useSelector();
+
+6. Slice : (State + action creators + reducers) -> createSlice
+7. Thunk / createAsyncThunk : Async code / logic 
+8. Provider : Connects store to react
+
+
+
+
+
