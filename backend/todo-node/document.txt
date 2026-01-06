@@ -1,0 +1,3 @@
+API:
+    - GET : to get all the tasks from database
+    - POST : Create the task and add it to database
