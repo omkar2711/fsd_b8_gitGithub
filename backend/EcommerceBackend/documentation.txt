@@ -1,0 +1,19 @@
+API:
+
+    USER:
+        - GET : Get user Details
+        - POST : update user Details
+        - GET : Get all the users 
+        - DELETE : Delete the user
+    
+
+    Auth:
+        - POST : login user
+        - POST : Register user
+
+    Product:
+        - POST : Create the Product
+        - GET : Get the product Details
+        - GET : Get all the products
+        - POST : Update the product
+        - DELETE : Delete the product
