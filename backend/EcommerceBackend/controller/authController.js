@@ -1,25 +1,25 @@
-import { users } from "../database.js";
+import User from "../model/userModel.js";
 
 
-const userLogin = (req, res ) => {
+const userLogin = async (req, res ) => {
     try{
+       
         const { email, password } = req.body;
 
         if(!email || !password){
-            return res.status(400).send("Email and password are required");
+            return  res.status(400).send("Email and password are required");
         }
 
-        if(users.length === 0){
-            return res.status(404).send("No users found. Please register first.");
-        }
-
-        const user = users.find(u => u.email === email && u.password === password);
-
+        let user = await User.findOne({email : email});
         if(!user){
-            return res.status(401).send("Invalid email or password");
+            return res.status(400).send("User does not exist");
         }
 
-        res.status(200).send("Login successful");
+        if(user.password !== password){
+            return res.status(400).send("Invalid credentials");
+        }
+
+        res.status(200).send("User logged in successfully");
 
     }
     catch(err){
@@ -27,10 +27,8 @@ const userLogin = (req, res ) => {
     }
 }
 
-const userRegister = (req, res) => {
+const userRegister = async (req, res) => {
     try{
-
-        const id = Date.now().toString();
         const { firstName, lastName, email, password, confirmPassword } = req.body;
 
         if(!firstName || !lastName || !email || !password || !confirmPassword){
@@ -41,20 +39,21 @@ const userRegister = (req, res) => {
             return res.status(400).send("Passwords do not match");
         }
 
-        const existingUser = users.find(u => u.email === email);
+        let existingUser = await User.findOne({email : email});
         if(existingUser){
-            return res.status(409).send("User with this email already exists");
+            return res.status(400).send("User already exists");
         }
 
-        const newUser = {
-            id,
-            firstName,
-            lastName,
-            email,
-            password
-        }
-        users.push(newUser);
-        res.status(201).send("User registered successfully");
+        const newUser = new User({
+            firstName: firstName,
+            lastName : lastName,
+            email: email,
+            password: password,
+        })
+
+        await newUser.save();
+        res.status(201).send("User registered successfully")
+       
     }
     catch(err){
         res.status(500).send("Server error");
