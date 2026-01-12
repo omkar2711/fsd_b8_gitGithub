@@ -1,9 +1,6 @@
 import User from "../model/userModel.js";
-<<<<<<< HEAD
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
-=======
->>>>>>> d461099f905bc45b70c3a4d054080ccc78e1fec3
 
 
 const userLogin = async (req, res ) => {
@@ -20,7 +17,6 @@ const userLogin = async (req, res ) => {
             return res.status(400).send("User does not exist");
         }
 
-<<<<<<< HEAD
         let isPasswordValid = await bcrypt.compare(password, user.password);
         if(!isPasswordValid){
             return res.status(400).send("Invalid credentials");
@@ -36,13 +32,6 @@ const userLogin = async (req, res ) => {
      
 
         res.status(200).send({ message: "Login successful", token: token } );
-=======
-        if(user.password !== password){
-            return res.status(400).send("Invalid credentials");
-        }
-
-        res.status(200).send("User logged in successfully");
->>>>>>> d461099f905bc45b70c3a4d054080ccc78e1fec3
 
     }
     catch(err){
@@ -67,21 +56,14 @@ const userRegister = async (req, res) => {
             return res.status(400).send("User already exists");
         }
 
-<<<<<<< HEAD
         let hashedPassword = await bcrypt.hash(password, 10);
 
-=======
->>>>>>> d461099f905bc45b70c3a4d054080ccc78e1fec3
         const newUser = new User({
             firstName: firstName,
             lastName : lastName,
             email: email,
-<<<<<<< HEAD
             password: hashedPassword,
             role: role
-=======
-            password: password,
->>>>>>> d461099f905bc45b70c3a4d054080ccc78e1fec3
         })
 
         await newUser.save();
