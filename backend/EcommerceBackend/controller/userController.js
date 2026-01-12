@@ -1,4 +1,6 @@
 import { users } from '../database.js';
+import User from '../model/userModel.js';
+import {authentication, authorization} from '../middleware/authentication.js';
 
 const getUserDetails = (req, res) => {
     try{
@@ -15,47 +17,47 @@ const getUserDetails = (req, res) => {
     }
 }
 
-const getAllUsers = (req, res) =>{
+const getAllUsers = async (req, res) =>{
     try{
-        res.status(200).json(users);
+
+        const authenticationResult = await authentication(req, res);
+        if(!authenticationResult){
+            res.status(401).send("User not authenticated");
+        }
+
+        const authorizationResult = await authorization(req, res);
+        if(!authorizationResult){
+            res.status(403).send("User not authorized");
+        }
+
+        const allUsers = await User.find();
+        res.status(200).json(allUsers);
     }
     catch(err){
         res.status(500).send("Server error");
     }
 }
 
-const updateUser = (req,res) => {
-    try{
+const updateUser = (req, res) => {
+    try {
         const userId = req.params.id;
         const updateData = req.body;
 
-        let userFound = false;
+        const userIndex = users.findIndex(user => user.id == userId);
 
-        const userExist = users.find(user=>{
-            if(user.id == userId){
-                userFound = true;
-            }
-        });
-
-        users = users.map(user=>{
-            if(user.id == userId){
-                return { ...user, ...updateData };
-            }
-            return user;
-        });
-        
-
-        if(!userFound){
+        if (userIndex === -1) {
             return res.status(404).send("User not found");
         }
 
-        res.status(200).send("User updated successfully" , users);
+        // Mutate the existing array instead of reassigning
+        users[userIndex] = { ...users[userIndex], ...updateData };
+
+        res.status(200).json({ message: "User updated successfully", user: users[userIndex] });
     }
-    catch(err){
-        res.status(500).send("Server error"); 
+    catch (err) {
+        res.status(500).send("Server error");
     }
 }
-
 
 const deleteUser = (req, res) => {
     try{
