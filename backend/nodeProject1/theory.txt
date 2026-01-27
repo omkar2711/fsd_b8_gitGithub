@@ -1,0 +1,18 @@
+This is sample data to be written to a file. updated
+Appended this line.
+
+
+MVC:
+    Model
+    View
+    Controller
+
+
+3tier architecture
+    - Controller
+    - Service
+    - Model
+
+    - Router
+    - utils
+    - middleware

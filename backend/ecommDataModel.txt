@@ -1,0 +1,40 @@
+
+
+User : 
+    - userID : ObjectID
+    - FirstName : String
+    - LastName : String
+    - Email : String
+    - Password : String (Encrypted)
+    - CreatedAt : DateFormat
+    - Role : Enum["user", "Admin", "seller"]
+    - Address : String
+    - OrderHistory : [
+         OrderID : ObjectID
+          OrderID : ObjectID
+           OrderID : ObjectID
+    ]
+    - cart : [
+         - ProductIs : ObjectID
+          - ProductIs : ObjectID
+           - ProductIs : ObjectID
+    ]
+
+Product:
+    - ProductId : ObjectID
+    - ProductName : String
+    - ProductDescription : String
+    - Quantity/stock : Number
+    - Price/cost : Number
+    - SellerInfo :  [- userID : ObjectID]
+    - Reviews : String / Rating : Number
+    - Images : [https://res.cloudinary.com/dta4li76y/image/upload/v1694612435/cld-sample-2.jpg, 
+                https://res.cloudinary.com/dta4li76y/image/upload/v1694612435/cld-sample-2.jpg, 
+                https://res.cloudinary.com/dta4li76y/image/upload/v1694612435/cld-sample-2.jpg]   
+
+Order: 
+    - OrderID : ObjectID
+    - OrderStatus : Enum[Pending, delivered, shipped, cancelled]
+    - UserID :  - userID : ObjectID
+    - CreatedAt : DateFormat
+

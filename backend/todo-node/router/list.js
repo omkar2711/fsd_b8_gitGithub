@@ -10,12 +10,12 @@ listRouter.get('/todos', (req, res)=>{
 })
 
 listRouter.post('/todos', (req, res)=>{
-    const listItem = req.body;
-    if(!listItem){
+    const data = req.body;
+    if(!data.id || !data.listItem){
         return res.status(400).send("Invalid todo item");
     }
-    toDoList.push(listItem);
-    res.send("Todo item added");
+    toDoList.push(data);
+    res.status(201).send("Todo item added");
 })
 
 listRouter.put('/todos/:id', (req, res)=>{
