@@ -11,7 +11,7 @@ productRouter.get('/products', getAllProducts);
 
 // productRouter.get('/product/:id',  );
 
-productRouter.post('/product', createProduct);
+productRouter.post('/create', createProduct);
 
 // productRouter.put('/product/:id');
 

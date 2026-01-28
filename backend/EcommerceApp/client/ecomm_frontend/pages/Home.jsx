@@ -25,6 +25,8 @@ const Home = () => {
   return (
     <div>
       <h1>Home Page</h1>
+      <Link to="/admin">Go to Admin Dashboard</Link>
+      <Link to="/product">Go to Product Page</Link>
     </div>
   )
 }

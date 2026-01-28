@@ -1,10 +1,26 @@
 
 import User from '../model/userModel.js';
 import {authentication, authorization} from '../middleware/authentication.js';
+import getDetailsFromToken from '../helper/getDetailsFromToken.js';
 
-const getUserDetails = (req, res) => {
+const getUserDetails = async (req, res) => {
     try{
       
+      const token = req.headers['authorization'].split(' ')[1];
+
+      const userIdFromToken = getDetailsFromToken(token);
+      const userId = userIdFromToken.userId;
+      console.log("User ID from Token in getUserDetails:", userId);
+      
+
+    const user = await User.findOne({email: userIdFromToken.email}).select('-password');
+
+     console.log("Fetched User Details:", user);
+        if(!user){
+            return res.status(404).send("User not found");
+        }
+        res.status(200).json(user);
+
     }
     catch(err){
         res.status(500).send("Server error");

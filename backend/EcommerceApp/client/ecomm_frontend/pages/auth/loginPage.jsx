@@ -25,7 +25,7 @@ const LoginPage = () => {
 
       if (response.token) {
         localStorage.setItem('token', response.token)
-        navigate('/home')
+        navigate('/')
       } else {
         setError('Invalid credentials. Please try again.')
       }

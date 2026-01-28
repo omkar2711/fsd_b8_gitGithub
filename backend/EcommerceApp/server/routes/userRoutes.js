@@ -11,7 +11,7 @@ userRouter.get('/' , (req,res)=>{
     res.send("User route is working");
 })
 
-userRouter.get('/user/:id', getUserDetails);
+userRouter.get('/user', getUserDetails);
 
 userRouter.get('/users', getAllUsers);
 
