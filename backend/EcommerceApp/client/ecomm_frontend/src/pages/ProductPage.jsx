@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { getAllProducts } from '../../api/apis.js';
+import { getAllProducts } from '../api/apis.js';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 

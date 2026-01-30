@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { createProduct, updateProduct, deleteProduct, getAllProducts } from '../../../api/apis';
+import { createProduct, updateProduct, deleteProduct, getAllProducts } from '../../api/apis';
 import { useOutletContext } from 'react-router-dom';
 
 export default function CreateProduct() {

@@ -2,6 +2,7 @@ import express from 'express';
 import userRouter from './routes/userRoutes.js';
 import authRouter from './routes/authRoutes.js';
 import productRouter from './routes/productRoutes.js';
+import orderRouter from './routes/orderRoutes.js';
 import dbConnection from './db/dbConnection.js';
 import dotenv from 'dotenv';
 import cors from 'cors';
@@ -38,6 +39,7 @@ app.get('/', (req,res)=>{
 app.use('/api/auth', authRouter);
 app.use('/api/users', userRouter);
 app.use('/api/products', productRouter);
+app.use('/api/orders', orderRouter);
 
 
 

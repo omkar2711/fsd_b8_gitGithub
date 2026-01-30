@@ -1,5 +1,12 @@
 import { Router } from "express";
-import { createProduct, getAllProducts } from "../controller/productController.js";
+import { 
+    createProduct, 
+    getAllProducts,
+    getProductById,
+    updateProduct,
+    deleteProduct,
+    addReview
+} from "../controller/productController.js";
 
 const productRouter = Router();
 
@@ -9,12 +16,14 @@ productRouter.get('/', (req, res) => {
 
 productRouter.get('/products', getAllProducts);
 
-// productRouter.get('/product/:id',  );
+productRouter.get('/:productId', getProductById);
 
 productRouter.post('/create', createProduct);
 
-// productRouter.put('/product/:id');
+productRouter.put('/:productId', updateProduct);
 
-// productRouter.delete('/product/:id');
+productRouter.delete('/:productId', deleteProduct);
+
+productRouter.post('/:productId/review', addReview);
 
 export default productRouter;

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import { getAllProducts } from '../../api/apis';
+import { Link, useNavigate } from 'react-router-dom';
+import { getAllProducts } from '../api/apis';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
@@ -8,14 +8,23 @@ export default function Home() {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  const navigate = useNavigate();
+
   useEffect(() => {
+
+     const token = localStorage.getItem('token');
+    if (!token) {
+      navigate('/login');
+      return;
+    }
+
     const fetchProducts = async () => {
       const data = await getAllProducts();
       setProducts(data?.slice(0, 6) || []);
       setLoading(false);
     };
     fetchProducts();
-  }, []);
+  }, [navigate]);
 
   return (
     <div className="min-h-screen flex flex-col">

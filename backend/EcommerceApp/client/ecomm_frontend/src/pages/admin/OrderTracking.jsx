@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { getAllOrders, updateOrderStatus } from '../../../api/apis';
+import { getAllOrders, updateOrderStatus } from '../../api/apis';
 import { useOutletContext } from 'react-router-dom';
 
 export default function OrderTracking() {

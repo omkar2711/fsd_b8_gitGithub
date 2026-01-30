@@ -48,40 +48,54 @@ const getAllUsers = async (req, res) =>{
     }
 }
 
-const updateUser = (req, res) => {
+const updateUser = async (req, res) => {
     try {
         const userId = req.params.id;
         const updateData = req.body;
 
-        const userIndex = users.findIndex(user => user.id == userId);
+        // Don't allow password updates through this endpoint
+        if (updateData.password) {
+            return res.status(400).send("Password cannot be updated through this endpoint");
+        }
 
-        if (userIndex === -1) {
+        const updatedUser = await User.findByIdAndUpdate(
+            userId,
+            { ...updateData, updatedAt: Date.now() },
+            { new: true }
+        ).select('-password');
+
+        if (!updatedUser) {
             return res.status(404).send("User not found");
         }
 
-        // Mutate the existing array instead of reassigning
-        users[userIndex] = { ...users[userIndex], ...updateData };
-
-        res.status(200).json({ message: "User updated successfully", user: users[userIndex] });
+        res.status(200).json({ 
+            message: "User updated successfully", 
+            user: updatedUser 
+        });
     }
     catch (err) {
+        console.error(err);
         res.status(500).send("Server error");
     }
 }
 
-const deleteUser = (req, res) => {
-    try{
+const deleteUser = async (req, res) => {
+    try {
         const userId = req.params.id;
-        const initialLength = users.length;
-        const updatedUsers = users.filter(user => user.id != userId);
 
-        // if(users.length == initialLength){
-        //     return res.status(404).send("User not found");
-        // }
+        const deletedUser = await User.findByIdAndDelete(userId);
 
-        res.status(200).send(updatedUsers);
+        if (!deletedUser) {
+            return res.status(404).send("User not found");
+        }
+
+        res.status(200).json({ 
+            message: "User deleted successfully",
+            user: deletedUser
+        });
     }
-    catch(err){
+    catch (err) {
+        console.error(err);
         res.status(500).send("Server error");
     }
 }

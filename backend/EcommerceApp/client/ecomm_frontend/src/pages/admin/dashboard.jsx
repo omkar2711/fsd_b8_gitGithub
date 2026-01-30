@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Outlet, Link, useNavigate } from 'react-router-dom';
-import { getUserDetails } from '../../../api/apis.js';
+import { getUserDetails } from '../../api/apis.js';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 
@@ -97,7 +97,7 @@ export default function Dashboard() {
           {activeTab === 'overview' && (
             <div>
               <h1 className="text-4xl font-bold mb-8">Dashboard Overview</h1>
-
+{/* 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
                 <div className="bg-white rounded-lg p-6 shadow">
                   <p className="text-gray-600 text-sm">Total Users</p>
@@ -111,7 +111,7 @@ export default function Dashboard() {
                   <p className="text-gray-600 text-sm">Total Products</p>
                   <p className="text-4xl font-bold text-gray-900 mt-2">0</p>
                 </div>
-              </div>
+              </div> */}
 
               <div className="bg-white rounded-lg p-6 shadow">
                 <h2 className="text-2xl font-bold mb-4">Quick Actions</h2>

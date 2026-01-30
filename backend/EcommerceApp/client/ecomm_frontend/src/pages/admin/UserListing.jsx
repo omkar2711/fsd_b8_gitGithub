@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { getAllUsers, deleteUser } from '../../../api/apis';
+import { getAllUsers, deleteUser } from '../../api/apis';
 import { useOutletContext } from 'react-router-dom';
 
 export default function UserListing() {

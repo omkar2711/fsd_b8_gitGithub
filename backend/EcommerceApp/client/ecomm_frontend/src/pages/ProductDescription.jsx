@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { getProductById, addProductReview } from '../../api/apis';
+import { getProductById, addProductReview } from '../api/apis';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
