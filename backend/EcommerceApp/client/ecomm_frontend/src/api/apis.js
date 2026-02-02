@@ -1,7 +1,8 @@
 import axios from 'axios';
 
 
-let backendUrl = "http://localhost:3000";
+let backendUrl = import.meta.env.VITE_BACKEND_URL;
+console.log(backendUrl);
 
 const checkSever = async () => {
     try{
