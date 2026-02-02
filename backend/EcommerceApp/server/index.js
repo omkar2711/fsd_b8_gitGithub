@@ -18,9 +18,11 @@ app.use(express.json());
 app.use(cors());
 
 const corsOptions = {
-    origin: process.env.FRONTEND_URL, // Replace with your frontend URL
+    origin: "*", 
     optionsSuccessStatus: 200 
 };
+
+
 
 app.use(cors(corsOptions));
 
